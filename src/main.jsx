@@ -1,10 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Header from './components/header';
+import NewsList from './components/news_list';
+import './styles/styles.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const App = () => {
+    return (
+        <>
+            <Header></Header>
+            <NewsList></NewsList>
+        </>
+    )
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(<App/>);
