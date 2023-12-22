@@ -1,17 +1,26 @@
+import { useState } from 'react'
 import Navigation from './nav'
 
-const Header = () => {
+const Header = (props) => {
+    let [active, setActive] = useState('active')
+    let [keywords, setKeywords] = useState('')
 
-    const onChangeHandler = (event) => {
-        console.log(event.target.value)
-    }
+    /* const onChangeHandler = (event) => {
+        const value = event.target.value === '' ? 'active' : 'not-active'
+        setKeywords(event.target.value)
+
+        setActive(value)
+    } */
+
+    console.log(props)
 
     return(
-        <header>
+        <header className={active}>
             <div className="logo">
                 Awesome news
             </div>
-            <input onChange={onChangeHandler}/>
+            <input onChange={props.getKeywords}/>
+            {/* the Keywords are: {keywords} */}
             <Navigation></Navigation>
         </header>
     )

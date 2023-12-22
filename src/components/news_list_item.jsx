@@ -1,9 +1,10 @@
-const NewsListItem = () => {
-    return (
+const NewsListItem = ({item}) => (
+    <div className="news_item">
+        <h3>{item.title}</h3>
         <div>
-            News List Item
+            {item.feed}
         </div>
-    )
-}
+    </div>
+)
 
 export default NewsListItem

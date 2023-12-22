@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/header/index';
 import NewsList from './components/news_list';
-import StatePlayground from './components/playground/state';
+import { newsData } from './utils/data'
+/* import StatePlayground from './components/playground/state'; */
 import './styles/styles.css';
 
 
 const App = () => {
+    let [news, setNews] = useState(newsData);
+
+    const getKeywords = (event) => {
+        console.log(event.target.value)
+    }
+
     return (
         <>
-            <Header></Header>
+            <Header getKeywords={getKeywords}></Header>
             <div className='container'>
-                <StatePlayground></StatePlayground>
+                {/* <StatePlayground></StatePlayground> */}
+                <NewsList news={news}>
+
+                    <br />
+                    <h1>I am a children</h1>
+                </NewsList>
             </div>
-            <NewsList></NewsList>
+            
         </>
     )
 }
